@@ -24,7 +24,7 @@ Write a SQL query for a report that provides the following information for each 
 regardless if there is an address for each of those people: FirstName, LastName, City, State
 */
 
-/* Solution: */
+# Write your MySQL query statement below
 
 SELECT p.FirstName, p.LastName, a.CIty, a.State
 FROM Person as p LEFT JOIN Address as a
