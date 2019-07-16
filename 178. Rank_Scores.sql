@@ -27,9 +27,19 @@ For example, given the above Scores table, your query should generate the follow
 +-------+------+
 */
 
-# Write your MySQL query statement below
+# 1. Write your MySQL query statement below
 SELECT tb1.Score, COUNT(tb2.Score) AS Rank 
 FROM Scores tb1, (SELECT DISTINCT Score FROM Scores) tb2
 WHERE tb1.Score <= tb2.Score
 GROUP BY tb1.Id, tb1.Score
 ORDER BY tb1.Score DESC;
+
+
+# 2. Write your MySQL query statement below
+SELECT Score, (
+    SELECT COUNT(DISTINCT Score)
+    FROM Scores tb1
+    WHERE tb2.Score <= tb1.Score      
+) AS Rank
+FROM Scores tb2
+ORDER BY Score DESC;
