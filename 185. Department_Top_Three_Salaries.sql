@@ -46,20 +46,18 @@ SELECT
     e.Name AS 'Employee',
     e.Salary
 FROM 
-    Employee e
-JOIN
-    Department d
-ON
-    e.DepartmentId = d.Id
+    Employee e, Department d
 WHERE
+    e.DepartmentId = d.Id
+AND
     3 > (
             SELECT
                 COUNT(DISTINCT Salary)
             FROM
                 Employee
             WHERE
-                DepartmentId = d.Id
-            AND
                 Salary > e.Salary
+            AND
+                DepartmentId = e.DepartmentId
         )
 ORDER BY d.Name, e.Salary DESC;
