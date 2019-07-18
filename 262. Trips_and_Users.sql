@@ -69,7 +69,7 @@ SELECT
 FROM
     Trips t
 WHERE
-    t.Client_id IN (SELECT USERs_Id FROM Users u WHERE u.Banned = 'No')
+    t.Client_id IN (SELECT Users_Id FROM Users u WHERE u.Banned = 'No')
     AND
     t.Request_at BETWEEN '2013-10-01' AND '2013-10-03'
 GROUP BY t.Request_at;
