@@ -60,19 +60,16 @@ WHERE
     u.Banned = 'No'
     AND
     t.Request_at BETWEEN '2013-10-01' AND '2013-10-03'
-GROUP BY t.Request_at
+GROUP BY t.Request_at;
 
 # 2. Write your MySQL query statement below
 SELECT 
     t.Request_at AS 'Day',
-    ROUND(COUNT(IF(t.Status != 'completed', TURE, NULL)) / COUNT(*), 2) AS 'Cancellation Rate'
+    ROUND(COUNT(IF(t.Status != 'completed', TRUE, NULL)) / COUNT(*), 2) AS 'Cancellation Rate'
 FROM
     Trips t
-    JOIN
-    Users u
-    ON t.Client_Id = u.Users_Id
 WHERE
-    u.Banned = 'No'
+    t.Client_id IN (SELECT USERs_Id FROM Users u WHERE u.Banned = 'No')
     AND
     t.Request_at BETWEEN '2013-10-01' AND '2013-10-03'
-GROUP BY t.Request_at
+GROUP BY t.Request_at;
