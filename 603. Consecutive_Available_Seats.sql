@@ -23,3 +23,13 @@ The seat_id is an auto increment int, and free is bool ('1' means free, and '0' 
 Consecutive available seats are more than 2(inclusive) seats consecutively available.
 */
 
+# Write your MySQL query statement below
+
+SELECT c0.seat_id 
+FROM cinema c0
+    LEFT JOIN cinema c1 ON c0.seat_id = c1.seat_id + 1
+    LEFT JOIN cinema c2 ON c0.seat_id = c2.seat_id - 1
+WHERE (c0.free = 1 AND c1.free = 1)
+    OR
+      (c0.free = 1 AND c2.free = 1)
+;
