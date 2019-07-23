@@ -23,7 +23,7 @@ Note:
 If there is no such number, just output null.
 */
 
-# Write your MySQL query statement below
+# 1. Write your MySQL query statement below
 SELECT IFNULL(
 (
     SELECT num 
@@ -33,3 +33,8 @@ SELECT IFNULL(
     ORDER BY num DESC
     LIMIT 1
 ), NULL) AS 'num'
+
+# 2. Write your MySQL query statement below
+SELECT MAX(num) AS 'num'
+FROM my_numbers
+WHERE num IN (SELECT num FROM my_numbers GROUP BY num HAVING COUNT(num)=1)
