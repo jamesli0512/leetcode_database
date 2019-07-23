@@ -77,7 +77,7 @@ JOIN
         GROUP BY 
             pay_month
     ) t2
-    ON
+ON
     t1.pay_month = t2.pay_month
 ORDER BY
     t1.department_id, 
