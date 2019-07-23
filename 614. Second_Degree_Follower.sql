@@ -30,7 +30,7 @@ Please display the result in follower's alphabet order.
 */
 
 # 1. Write your MySQL query statement below
-/*######This solution does not work when follower or followee names are case-sensitive#####*/
+/*###### This solution does not work when follower or followee names are case-sensitive #####*/
 SELECT
     f.followee AS 'follower',
     COUNT(DISTINCT CONCAT(f.followee, f.follower)) AS 'num'
