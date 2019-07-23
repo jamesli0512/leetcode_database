@@ -66,8 +66,8 @@ LEFT JOIN
 ON 
     t1.amid = t3.euid
 ;
-/* For the follow-up question:*/
 
+/* For the follow-up question:*/
 SELECT MAX(America) AS 'America', MAX(Asia) AS 'Asia', MAX(Europe) AS 'Europe'
 FROM (
     SELECT 
