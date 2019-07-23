@@ -42,8 +42,8 @@ the department '1' and '2' have the same average salary with the company, which 
 */
 
 # Write your MySQL query statement below
-S
-ELECT
+
+SELECT
     t1.pay_month,
     t1.department_id,
     CASE
@@ -67,11 +67,11 @@ FROM
             e.department_id,
             pay_month
     ) t1
-    JOIN
+JOIN
     (
         SELECT 
-            DATE_FORMAT(pay_date, '%Y-%m') AS 'pay_month', 
-            AVG(amount) AS 'com_avg' 
+            AVG(amount) AS 'com_avg',
+            DATE_FORMAT(pay_date, '%Y-%m') AS 'pay_month'
         FROM 
             salary 
         GROUP BY 
