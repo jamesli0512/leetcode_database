@@ -69,3 +69,4 @@ ON
     t.event_date = a.event_date - 1
 GROUP BY
     t.event_date
+;
